@@ -33,7 +33,8 @@ compiled_sol = compile_source(contract_source_code) # Compiled source code
 contract_interface = compiled_sol['<stdin>:Greeter']
 
 # web3.py instance
-w3 = Web3(TestRPCProvider())
+w3 = Web3(HTTPProvider('http://localhost:7545'))
+
 
 # Instantiate and deploy contract
 contract = w3.eth.contract(abi=contract_interface['abi'], bytecode=contract_interface['bin'])
